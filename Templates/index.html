@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Loan Predictor</title>
+    <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Bank Loan Predictor</h2>
+        <form action="/predict" method="POST">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label for="married">Married:</label>
+            <select id="married" name="married">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="income">Income ($):</label>
+            <input type="text" id="income" name="income" required>
+
+            <label for="credit_history">Credit History:</label>
+            <select id="credit_history" name="credit_history">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
